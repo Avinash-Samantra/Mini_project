@@ -1,10 +1,12 @@
-const express = require('express');
+import express from "express";
+
+import { createProduct, deleteProduct, getProducts, updateProduct } from "../controllers/product.controller.js";
+
 const router = express.Router();
 
-// Example of a route with a parameter
-router.get('/products/:id', (req, res) => {
-    const productId = req.params.id; // Ensure this is provided in the request
-    // Logic to fetch product by ID
-});
+router.get("/", getProducts);
+router.post("/", createProduct);
+router.put("/:id", updateProduct);
+router.delete("/:id", deleteProduct);
 
-module.exports = router;
+export default router;
